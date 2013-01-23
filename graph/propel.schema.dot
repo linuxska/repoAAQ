@@ -1,0 +1,13 @@
+digraph G {
+nodecliente_cotizacion [label="{<table>cliente_cotizacion|<cols>id (INTEGER) [PK]\lnombre_cliente (VARCHAR)\lnombre_empresa (VARCHAR)\ltelefono (VARCHAR)\ldireccion (VARCHAR)\lciudad (VARCHAR)\lcp (VARCHAR)\lestado (VARCHAR)\l}", shape=record];
+nodecliente_factura [label="{<table>cliente_factura|<cols>id (INTEGER) [PK]\lnombre_cliente (VARCHAR)\lrfc (VARCHAR)\ldireccion (VARCHAR)\ltelefono (VARCHAR)\lcolonia (VARCHAR)\lcp (VARCHAR)\lciudad (VARCHAR)\lestado (VARCHAR)\l}", shape=record];
+nodecotizacion [label="{<table>cotizacion|<cols>id (INTEGER) [PK]\lcliente_cotizacion_id (INTEGER) [FK]\lfecha_cortizacion (DATE)\ltiempo_entrega (VARCHAR)\lforma_pago (VARCHAR)\lgarantia (VARCHAR)\l}", shape=record];
+nodedetalle_factura [label="{<table>detalle_factura|<cols>id (INTEGER) [PK]\lfactura_id (INTEGER) [FK]\lcantidad_servicios (VARCHAR)\lclave_servicio (VARCHAR)\ldescripcion_servicio (LONGVARCHAR)\lprecio_servicio (FLOAT)\l}", shape=record];
+nodedetalles_cotizacion [label="{<table>detalles_cotizacion|<cols>id (VARCHAR) [PK]\lcotizacion_id (INTEGER) [FK]\lcantidad_servicio (VARCHAR)\lclave (VARCHAR)\ldescripcion (LONGVARCHAR)\lprecio_servicio (INTEGER)\l}", shape=record];
+nodefactura [label="{<table>factura|<cols>id (INTEGER) [PK]\lcliente_factura_id (INTEGER) [FK]\lfecha_factura (DATE)\llugar_expedicion (VARCHAR)\lcantidad_total_letra (VARCHAR)\lpago_mensual (INTEGER)\l}", shape=record];
+
+nodecotizacion:cols -> nodecliente_cotizacion:table [label="cliente_cotizacion_id=id "];
+nodedetalle_factura:cols -> nodefactura:table [label="factura_id=id "];
+nodedetalles_cotizacion:cols -> nodecotizacion:table [label="cotizacion_id=id "];
+nodefactura:cols -> nodecliente_factura:table [label="cliente_factura_id=id "];
+}
