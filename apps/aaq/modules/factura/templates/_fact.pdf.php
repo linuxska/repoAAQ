@@ -47,7 +47,7 @@
 <table >
 <br/><br/><br/>
 <tr>
-    <td align="center"><?php echo num2letras($total); ?></td>
+    <td align="center"><?php echo sprintf("%s",num2letras($total)) ?></td>
     <td align="rigth"><?php echo sprintf("$ %s.00", $subtotal) ?></td>
 </tr>
 <tr>

@@ -17,7 +17,7 @@
     </li>
     <li class="menu_role">
             <ul class="menu_sub">
-                <li class ="menu_sub_header"><a class="alternate" href="<?php echo url_for('@homepage') ?>"></a>Facturas</li>
+                <li class ="menu_sub_header"><a class="alternate" href="<?php echo url_for('@homepage') ?>"></a>Cotización</li>
                 <li class="app <?php echo in_array('cliente_cotizacion', explode('/', $sf_request->getUri())) ? "selected" : "" ?>"><a href="<?php echo url_for('@cliente_cotizacion') ?>" class="alternate">Cliente a Cotizas</a></li>
                 <li class="app <?php echo in_array('cotizacion', explode('/', $sf_request->getUri())) ? "selected" : "" ?>"><a href="<?php echo url_for('@cotizacion') ?>" class="alternate">Cotizaciones</a></li>
                 <li class="app <?php echo in_array('detalles_cotizacion', explode('/', $sf_request->getUri())) ? "selected" : "" ?>"><a href="<?php echo url_for('@detalles_cotizacion') ?>" class="alternate">Detalles Cotizaciones</a></li>

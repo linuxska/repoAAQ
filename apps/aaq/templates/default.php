@@ -19,7 +19,7 @@
       </div>
       <div class="rp_admin_footer">
         <p> <?php echo date('Y', time());?> <a href="http://www.google.com.mx">Aire Acondicionado de Queretaro</a>.
-        <p class="rp_admin_ipe">Montes CLaros No. 134, Colonia Lomas del Marques, Queretaro, Qro. CP 76146.<br />Telefono: 01 442 224 2361 | CorreoE: aaq@prodigy.net</p>
+        <p class="rp_admin_ipe">Montes Claros No. 134, Colonia Lomas del Marques, Queretaro, Qro. CP 76146.<br />Telefono: 01 442 224 2361 | CorreoE: aireacondicionadodequeretaro@prodigy.net</p>
         <p class="rp_admin_dev">Desarrollado por Abraham Rafael Rico Moreno.<br /> <a href="http://www.abricolabs.net/">Labs Cafeinne</a>. 461 1433 296 </p>
       </div>
   </body>

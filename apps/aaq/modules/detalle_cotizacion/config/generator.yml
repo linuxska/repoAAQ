@@ -13,9 +13,15 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
+      fields:
+        descripcion: { label: Descripción de servicio }
+      list:
+        display: [cotizacion, cantidad_servicio,  clave, descripcion, precio_servicio]
+        title: Descripcion de servicio por cotizacion
+        max_per_page: 25
+      filter: ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar descripcion de cotizacion numero %cotizacion%
+      new:
+        title: Nuevo servicio para cotizar
