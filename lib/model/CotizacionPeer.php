@@ -18,4 +18,8 @@
  */
 class CotizacionPeer extends BaseCotizacionPeer {
 
+	static public function getCotizacion(array $request) {
+        return CotizacionPeer::retrieveByPK($request['id']);
+    }
+
 } // CotizacionPeer

@@ -2,12 +2,14 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+CREATE SCHEMA IF NOT EXISTS `bd_aaq` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `bd_aaq` ;
 
 -- -----------------------------------------------------
 -- Table `bd_aaq`.`cliente_factura`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_aaq`.`cliente_factura` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `nombre_cliente` VARCHAR(256) NOT NULL ,
   `rfc` VARCHAR(16) NULL ,
   `direccion` VARCHAR(256) NULL ,
@@ -24,7 +26,7 @@ ENGINE = InnoDB;
 -- Table `bd_aaq`.`factura`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_aaq`.`factura` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `cliente_factura_id` INT NOT NULL ,
   `fecha_factura` DATE NOT NULL ,
   `lugar_expedicion` VARCHAR(128) NOT NULL ,
@@ -44,14 +46,14 @@ ENGINE = InnoDB;
 -- Table `bd_aaq`.`cliente_cotizacion`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_aaq`.`cliente_cotizacion` (
-  `id` INT NOT NULL ,
-  `nombre_cliente` VARCHAR(45) NULL ,
-  `nombre_empresa` VARCHAR(45) NULL ,
-  `telefono` VARCHAR(45) NULL ,
-  `direccion` VARCHAR(45) NULL ,
-  `ciudad` VARCHAR(45) NULL ,
-  `cp` VARCHAR(45) NULL ,
-  `estado` VARCHAR(45) NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre_cliente` VARCHAR(256) NULL ,
+  `nombre_empresa` VARCHAR(256) NULL ,
+  `telefono` VARCHAR(12) NULL ,
+  `direccion` VARCHAR(256) NULL ,
+  `ciudad` VARCHAR(256) NULL ,
+  `cp` VARCHAR(5) NULL ,
+  `estado` VARCHAR(128) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -60,7 +62,7 @@ ENGINE = InnoDB;
 -- Table `bd_aaq`.`detalle_factura`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_aaq`.`detalle_factura` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `factura_id` INT NOT NULL ,
   `cantidad_servicios` VARCHAR(8) NOT NULL ,
   `clave_servicio` VARCHAR(16) NOT NULL ,
@@ -80,9 +82,9 @@ ENGINE = InnoDB;
 -- Table `bd_aaq`.`cotizacion`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_aaq`.`cotizacion` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `cliente_cotizacion_id` INT NOT NULL ,
-  `fecha_cortizacion` DATE NOT NULL ,
+  `fecha_cotizacion` DATE NOT NULL ,
   `tiempo_entrega` VARCHAR(256) NULL ,
   `forma_pago` VARCHAR(256) NULL ,
   `garantia` VARCHAR(128) NULL ,
@@ -100,7 +102,7 @@ ENGINE = InnoDB;
 -- Table `bd_aaq`.`detalles_cotizacion`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_aaq`.`detalles_cotizacion` (
-  `id` VARCHAR(45) NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `cotizacion_id` INT NOT NULL ,
   `cantidad_servicio` VARCHAR(8) NOT NULL ,
   `clave` VARCHAR(64) NOT NULL ,

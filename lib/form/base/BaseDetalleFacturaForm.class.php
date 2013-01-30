@@ -7,7 +7,7 @@
  *
  * @package    aaq
  * @subpackage form
- * @author     Your name here
+ * @author     Abraham Rafael Rico Moreno
  */
 abstract class BaseDetalleFacturaForm extends BaseFormPropel
 {

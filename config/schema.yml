@@ -4,17 +4,17 @@ propel:
     defaultIdMethod: native
   cliente_cotizacion:
     _attributes: { phpName: ClienteCotizacion }
-    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, required: true }
-    nombre_cliente: { phpName: NombreCliente, type: VARCHAR, size: '45', required: false }
-    nombre_empresa: { phpName: NombreEmpresa, type: VARCHAR, size: '45', required: false }
-    telefono: { phpName: Telefono, type: VARCHAR, size: '45', required: false }
-    direccion: { phpName: Direccion, type: VARCHAR, size: '45', required: false }
-    ciudad: { phpName: Ciudad, type: VARCHAR, size: '45', required: false }
-    cp: { phpName: Cp, type: VARCHAR, size: '45', required: false }
-    estado: { phpName: Estado, type: VARCHAR, size: '45', required: false }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    nombre_cliente: { phpName: NombreCliente, type: VARCHAR, size: '256', required: false }
+    nombre_empresa: { phpName: NombreEmpresa, type: VARCHAR, size: '256', required: false }
+    telefono: { phpName: Telefono, type: VARCHAR, size: '12', required: false }
+    direccion: { phpName: Direccion, type: VARCHAR, size: '256', required: false }
+    ciudad: { phpName: Ciudad, type: VARCHAR, size: '256', required: false }
+    cp: { phpName: Cp, type: VARCHAR, size: '5', required: false }
+    estado: { phpName: Estado, type: VARCHAR, size: '128', required: false }
   cliente_factura:
     _attributes: { phpName: ClienteFactura }
-    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, required: true }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     nombre_cliente: { phpName: NombreCliente, type: VARCHAR, size: '256', required: true }
     rfc: { phpName: Rfc, type: VARCHAR, size: '16', required: false }
     direccion: { phpName: Direccion, type: VARCHAR, size: '256', required: false }
@@ -25,16 +25,16 @@ propel:
     estado: { phpName: Estado, type: VARCHAR, size: '128', required: false }
   cotizacion:
     _attributes: { phpName: Cotizacion }
-    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, required: true }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     cliente_cotizacion_id: { phpName: ClienteCotizacionId, type: INTEGER, size: '11', required: true, foreignTable: cliente_cotizacion, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
-    fecha_cortizacion: { phpName: FechaCortizacion, type: DATE, required: true }
+    fecha_cotizacion: { phpName: FechaCotizacion, type: DATE, required: true }
     tiempo_entrega: { phpName: TiempoEntrega, type: VARCHAR, size: '256', required: false }
     forma_pago: { phpName: FormaPago, type: VARCHAR, size: '256', required: false }
     garantia: { phpName: Garantia, type: VARCHAR, size: '128', required: false }
     _indexes: { fk_cotizacion_cliente_cotizacion1: [cliente_cotizacion_id] }
   detalle_factura:
     _attributes: { phpName: DetalleFactura }
-    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, required: true }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     factura_id: { phpName: FacturaId, type: INTEGER, size: '11', required: true, foreignTable: factura, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
     cantidad_servicios: { phpName: CantidadServicios, type: VARCHAR, size: '8', required: true }
     clave_servicio: { phpName: ClaveServicio, type: VARCHAR, size: '16', required: true }
@@ -43,7 +43,7 @@ propel:
     _indexes: { fk_detalle_factura_factura1: [factura_id] }
   detalles_cotizacion:
     _attributes: { phpName: DetallesCotizacion }
-    id: { phpName: Id, type: VARCHAR, size: '45', primaryKey: true, required: true }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     cotizacion_id: { phpName: CotizacionId, type: INTEGER, size: '11', required: true, foreignTable: cotizacion, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
     cantidad_servicio: { phpName: CantidadServicio, type: VARCHAR, size: '8', required: true }
     clave: { phpName: Clave, type: VARCHAR, size: '64', required: true }
@@ -52,7 +52,7 @@ propel:
     _indexes: { fk_detalles_cotizacion_cotizacion1: [cotizacion_id] }
   factura:
     _attributes: { phpName: Factura }
-    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, required: true }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
     cliente_factura_id: { phpName: ClienteFacturaId, type: INTEGER, size: '11', required: true, foreignTable: cliente_factura, foreignReference: id, onDelete: RESTRICT, onUpdate: RESTRICT }
     fecha_factura: { phpName: FechaFactura, type: DATE, required: true }
     lugar_expedicion: { phpName: LugarExpedicion, type: VARCHAR, size: '128', required: true }

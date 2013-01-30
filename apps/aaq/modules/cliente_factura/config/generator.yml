@@ -1,0 +1,31 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           ClienteFactura
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ClienteFactura
+    plural:                ClienteFacturas
+    route_prefix:          cliente_factura
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        nombre_cliente: { label: Nombre del cliente }
+        rfc:            { label: RFC del cliente }
+        direccion:      { label: Dirección }
+        telefono:       { label: Teléfono }
+        cp:              { label: Codigo Postal  }
+      list:
+        display: [nombre_cliente, rfc, direccion, telefono, colonia, cp, ciudad, estado]
+        title: Catalogo de Clientes
+        max_per_page: 25
+      filter: ~
+      form:    ~
+      edit:
+        title: Editar cliente  %%nombre_cliente%%
+      new:
+        title: Nuevo cliente por facturar

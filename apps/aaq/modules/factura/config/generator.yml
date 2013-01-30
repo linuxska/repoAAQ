@@ -1,0 +1,35 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Factura
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Factura
+    plural:                Facturas
+    route_prefix:          factura
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: { label: Numero de factura }
+        factura: { label: Nombre del cliente }
+      list:
+        display: [id, =factura, cantidad_total_letra, fecha_factura, cantidad_total_letra, pago_mensual]
+        title: Catalogo de facturas
+        batch_actions: {}
+        object_actions:
+          imprimir_factura:
+            label: imprimir factura
+        max_per_page: 25
+        actions:
+          _new:
+            label: Nueva factura
+      filter: ~
+      form:    ~
+      edit:
+        title: Editar factura  de %%factura%%
+      new:
+        title: Nuevo factura

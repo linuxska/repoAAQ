@@ -18,4 +18,8 @@
  */
 class ClienteCotizacion extends BaseClienteCotizacion {
 
+	public function __toString() {
+        return sprintf("%s", $this->getNombreCliente());
+    }
+
 } // ClienteCotizacion

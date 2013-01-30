@@ -18,4 +18,7 @@
  */
 class FacturaPeer extends BaseFacturaPeer {
 
+static public function getFactura(array $request) {
+        return FacturaPeer::retrieveByPK($request['id']);
+    }
 } // FacturaPeer

@@ -15,3 +15,64 @@
 #     password: changeme
 #     name:     Kris Wallsmith
 #     email:    kris.wallsmith@symfony-project.com
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: administrador
+    description: ''
+  sfGuardGroup_2:
+    name: ventas
+    description: ''
+sfGuardPermission:
+  sfGuardPermission_1:
+    name: administrador
+    description: administrador
+  sfGuardPermission_2:
+    name: ventas
+    description: ventas
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
+    group_id: sfGuardGroup_1
+    permission_id: sfGuardPermission_1
+  sfGuardGroupPermission_2_2:
+    group_id: sfGuardGroup_2
+    permission_id: sfGuardPermission_2
+sfGuardUser:
+  sfGuardUser_1:
+    username: david
+    algorithm: sha1
+    salt: 9029d2c0c5ee0c53b2705c844092082f
+    password: 4752d756fedbd774de4d284b6b39c87af2cbaa31
+    created_at: '2013-01-29 00:16:04'
+    last_login: '2013-01-29 00:16:25'
+    is_active: '1'
+    is_super_admin: '1'
+  sfGuardUser_2:
+    username: abraham
+    algorithm: sha1
+    salt: 091e1416406ee9757f05dc1a44f8c86b
+    password: 4092e416c5e56e17d2c8207a669d40a5ca5dba1e
+    created_at: '2013-01-29 00:17:35'
+    is_active: '1'
+    is_super_admin: '0'
+  sfGuardUser_3:
+    username: israel
+    algorithm: sha1
+    salt: 0c4bf63557bd7170e892de7fb537ad29
+    password: 0bc2ec1c6ff415f3d0d6c7fdd2bb3574e661158a
+    created_at: '2013-01-29 00:17:45'
+    is_active: '1'
+    is_super_admin: '0'
+sfGuardUserGroup:
+  sfGuardUserGroup_2_1:
+    user_id: sfGuardUser_2
+    group_id: sfGuardGroup_1
+  sfGuardUserGroup_3_2:
+    user_id: sfGuardUser_3
+    group_id: sfGuardGroup_2
+sfGuardUserPermission:
+  sfGuardUserPermission_2_1:
+    user_id: sfGuardUser_2
+    permission_id: sfGuardPermission_1
+  sfGuardUserPermission_3_2:
+    user_id: sfGuardUser_3
+    permission_id: sfGuardPermission_2

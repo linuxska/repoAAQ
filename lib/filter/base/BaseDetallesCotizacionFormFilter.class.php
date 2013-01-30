@@ -5,7 +5,7 @@
  *
  * @package    aaq
  * @subpackage filter
- * @author     Your name here
+ * @author     Abraham Rafael Rico Moreno
  */
 abstract class BaseDetallesCotizacionFormFilter extends BaseFormFilterPropel
 {
@@ -42,7 +42,7 @@ abstract class BaseDetallesCotizacionFormFilter extends BaseFormFilterPropel
   public function getFields()
   {
     return array(
-      'id'                => 'Text',
+      'id'                => 'Number',
       'cotizacion_id'     => 'ForeignKey',
       'cantidad_servicio' => 'Text',
       'clave'             => 'Text',

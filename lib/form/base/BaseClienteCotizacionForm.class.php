@@ -7,7 +7,7 @@
  *
  * @package    aaq
  * @subpackage form
- * @author     Your name here
+ * @author     Abraham Rafael Rico Moreno
  */
 abstract class BaseClienteCotizacionForm extends BaseFormPropel
 {
@@ -26,13 +26,13 @@ abstract class BaseClienteCotizacionForm extends BaseFormPropel
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
-      'nombre_cliente' => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'nombre_empresa' => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'telefono'       => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'direccion'      => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'ciudad'         => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'cp'             => new sfValidatorString(array('max_length' => 45, 'required' => false)),
-      'estado'         => new sfValidatorString(array('max_length' => 45, 'required' => false)),
+      'nombre_cliente' => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'nombre_empresa' => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'telefono'       => new sfValidatorString(array('max_length' => 12, 'required' => false)),
+      'direccion'      => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'ciudad'         => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'cp'             => new sfValidatorString(array('max_length' => 5, 'required' => false)),
+      'estado'         => new sfValidatorString(array('max_length' => 128, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('cliente_cotizacion[%s]');

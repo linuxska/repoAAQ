@@ -7,7 +7,7 @@
  *
  * @package    aaq
  * @subpackage form
- * @author     Your name here
+ * @author     Abraham Rafael Rico Moreno
  */
 abstract class BaseCotizacionForm extends BaseFormPropel
 {
@@ -16,7 +16,7 @@ abstract class BaseCotizacionForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'                    => new sfWidgetFormInputHidden(),
       'cliente_cotizacion_id' => new sfWidgetFormPropelChoice(array('model' => 'ClienteCotizacion', 'add_empty' => false)),
-      'fecha_cortizacion'     => new sfWidgetFormDate(),
+      'fecha_cotizacion'      => new sfWidgetFormDate(),
       'tiempo_entrega'        => new sfWidgetFormInputText(),
       'forma_pago'            => new sfWidgetFormInputText(),
       'garantia'              => new sfWidgetFormInputText(),
@@ -25,7 +25,7 @@ abstract class BaseCotizacionForm extends BaseFormPropel
     $this->setValidators(array(
       'id'                    => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'cliente_cotizacion_id' => new sfValidatorPropelChoice(array('model' => 'ClienteCotizacion', 'column' => 'id')),
-      'fecha_cortizacion'     => new sfValidatorDate(),
+      'fecha_cotizacion'      => new sfValidatorDate(),
       'tiempo_entrega'        => new sfValidatorString(array('max_length' => 256, 'required' => false)),
       'forma_pago'            => new sfValidatorString(array('max_length' => 256, 'required' => false)),
       'garantia'              => new sfValidatorString(array('max_length' => 128, 'required' => false)),

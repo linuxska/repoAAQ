@@ -18,4 +18,14 @@
  */
 class Cotizacion extends BaseCotizacion {
 
+	public function __toString() {
+        return sprintf("%s ", $this->getClienteCotizacionId());
+    }
+
+	public function getCotizacion() {
+        $cotizacion = CotizacionPeer::retrieveByPK($this->getClienteCotizacionId());
+        $nombre =  ClienteCotizacionPeer::retrieveByPK($cotizacion->getId());
+        $name = $nombre->getNombreCliente();
+        return sprintf("%s", $name);
+	}
 } // Cotizacion

@@ -1,0 +1,39 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Cotizacion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Cotizacion
+    plural:                Cotizacions
+    route_prefix:          cotizacion
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        id: { label: Numero de cotizacion }
+        fecha_cortizacion: { label: Fecha de cotización }
+        tiempo_entrega: { label: Tiempo de entrega }
+        forma_pago: { label: Forma de pago }
+        garantia: { label: Garantía }
+        cotizacion: { label: Nombre del cliente }
+      list:
+        display: [id, =cotizacion, fecha_cortizacion, tiempo_entrega, forma_pago, garantia]
+        title: Catalogo de cotizaciones
+        batch_actions: {}
+        object_actions:
+          imprimir_cotizacion:
+            label: imprimir cotizacion
+        max_per_page: 25
+        actions:
+          _new:
+            label: Nueva cotización
+      filter: ~
+      form:    ~
+      edit:
+        title: Editar cotizacion de %%cotizacion%%
+      new:
+        title: Nueva cotizacion

@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [ipe/layout.css, main.css, ../sfPropelPlugin/css/default.css, ../sfPropelPlugin/css/global.css, ui_lightness/jquery_ui_1.8.21.custom.css]
 
-  javascripts:    []
+  javascripts:    [library/jquery/jquery.js, library/tiny_mce/tiny_mce.js, library/jquery/jquery_1.9.0.min.js, library/jquery/jquery_ui_1.10.0.custom.min.js]
 
   has_layout:     true
   layout:         layout

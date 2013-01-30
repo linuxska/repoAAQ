@@ -18,4 +18,15 @@
  */
 class Factura extends BaseFactura {
 
+	public function __toString() {
+        return sprintf("%s ", $this->getClienteFacturaId());
+    }
+
+
+	public function getFactura() {
+        $factura = FacturaPeer::retrieveByPK($this->getClienteFacturaId());
+        $nombre =  ClienteFacturaPeer::retrieveByPK($factura->getId());
+        $abc = $nombre->getNombreCliente();
+        return sprintf("%s", $abc);
+    }
 } // Factura

@@ -1,16 +1,115 @@
+detalles_cotizacion:
+  class: sfPropelRouteCollection
+  options:
+    model:                DetallesCotizacion
+    module:               detalle_cotizacion
+    prefix_path:          /detalle_cotizacion
+    column:               id
+    with_wildcard_routes: true
+
+detalle_factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                DetalleFactura
+    module:               detalle_factura
+    prefix_path:          /detalle_factura
+    column:               id
+    with_wildcard_routes: true
+
+factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                Factura
+    module:               factura
+    prefix_path:          /factura
+    column:               id
+    with_wildcard_routes: true
+
+cotizacion:
+  class: sfPropelRouteCollection
+  options:
+    model:                Cotizacion
+    module:               cotizacion
+    prefix_path:          /cotizacion
+    column:               id
+    with_wildcard_routes: true
+
+cliente_factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                ClienteFactura
+    module:               cliente_factura
+    prefix_path:          /cliente_factura
+    column:               id
+    with_wildcard_routes: true
+
+cliente_cotizacion:
+  class: sfPropelRouteCollection
+  options:
+    model:                ClienteCotizacion
+    module:               cliente_cotizacion
+    prefix_path:          /cliente_cotizacion
+    column:               id
+    with_wildcard_routes: true
+
+
+
+homepage:
+  url:   /
+  param: { module: aaq, action: index }
+
+legal:
+  url:   /
+  param: { module: aaq, action: index }
+
+about:
+  url:   /
+  param: { module: aaq, action: index }
+
+download_manual:
+  url:   /download/manual.:sf_format
+  param: { module: aaq , action: DownloadManual, sf_format: pdf}    with_wildcard_routes: true
+
+##################################sfGuardPlugin#################################
+
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# default rules
-homepage:
-  url:   /
-  param: { module: default, action: index }
+factura_imprimir:
+  url:              /factura/imprimir_lista/:id.:sf_format
+  class:            sfPropelRoute
+  options:          { model: Factura, type: object, method: getFactura }
+  requirements:
+    id:             \d+
+    sf_method:      [get]
+  param:            { module: factura, action: ImprimirFactura, sf_format: pdf }
 
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
 
-default:
-  url:   /:module/:action/*
+###################################Password(Pendiente)##################
+change_password:
+  url:              /changepassword
+  param:            { module: aaq, action: ChangePasswordShow }
+change_password_do:
+  url:              /dochangepassword
+  param:            { module: aaq, action: ChangePassword }
+
+recover_password:
+  url:              /recoverpassword
+  param:            { module: aaq, action: RecoverPasswordShow }
+recover_password_do:
+  url:              /dorecoverpassword
+  param:            { module: aaq, action: RecoverPassword }

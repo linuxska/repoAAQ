@@ -18,4 +18,7 @@
  */
 class ClienteFactura extends BaseClienteFactura {
 
+public function __toString() {
+        return sprintf("%s %s", $this->getNombreCliente(), $this->getRfc());
+    }
 } // ClienteFactura

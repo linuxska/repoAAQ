@@ -1,0 +1,32 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           ClienteCotizacion
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ClienteCotizacion
+    plural:                ClienteCotizacions
+    route_prefix:          cliente_cotizacion
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        nombre_cliente: { label: Nombre del cliente }
+        nombre_empresa: { label: Nombre de la empresa }
+        rfc:            { label: RFC del cliente }
+        direccion:      { label: Dirección }
+        telefono:       { label: Teléfono }
+        cp:              { label: Codigo Postal  }
+      list:
+        display: [nombre_cliente, nombre_empresa, direccion, telefono, ciudad, estado]
+        title: Catalogo de Clientes a cotizar
+        max_per_page: 25
+      filter: ~
+      form:    ~
+      edit:
+        title: Editar cliente  %%nombre_cliente%%
+      new:
+        title: Nuevo cliente por cotizar

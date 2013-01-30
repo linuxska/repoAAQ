@@ -1,0 +1,27 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           DetalleFactura
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              DetalleFactura
+    plural:                DetalleFacturas
+    route_prefix:          detalle_factura
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        descripcion_servicio: { label: Descripción de servicio }
+      list:
+        display: [factura, cantidad_servicios,  clave_servicio, ,descripcion_servicio, precio_servicio]
+        title: Descripcion de servicio por factura
+        max_per_page: 25
+      filter: ~
+      form:    ~
+      edit:
+        title: Editar descripcion de factura numero %factura%
+      new:
+        title: Nuevo servicio para factura 
