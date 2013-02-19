@@ -89,6 +89,16 @@ sf_guard_password:
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+cotizacion_imprimir:
+  url:              /cotizacion/imprimir_cotizacion/:id.:sf_format
+  class:            sfPropelRoute
+  options:          { model: Cotizacion, type: object, method: getCotizacion }
+  requirements:
+    id:             \d+
+    sf_method:      [get]
+  param:            { module: cotizacion, action: ImprimirCotizacion, sf_format: pdf }
+
+
 factura_imprimir:
   url:              /factura/imprimir_lista/:id.:sf_format
   class:            sfPropelRoute

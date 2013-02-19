@@ -13,4 +13,23 @@ require_once dirname(__FILE__).'/../lib/cotizacionGeneratorHelper.class.php';
  */
 class cotizacionActions extends autoCotizacionActions
 {
+
+	public function executeImprimirCotizacion(sfWebRequest $request) {
+    	//var_dump($this->getRoute()->getObject()); die();
+    	try {
+            $this->cotizacion = $this->getRoute()->getObject();
+        } catch (sfError404Exception $e) {
+            $this->getUser()->setFlash('error', "La cotizacion solicitada no existe.");
+            $this->redirect('@cotizacion');
+        }
+        
+        $content = $this->getPartial('cotiz');
+
+        $lista = new AAQ_04($content);
+
+        $lista->doPDF();
+
+        $this->setLayout(false);
+        return sfView::NONE;
+    }
 }

@@ -21,7 +21,7 @@ generator:
         garantia: { label: Garantía }
         cotizacion: { label: Nombre del cliente }
       list:
-        display: [id, =cotizacion, fecha_cortizacion, tiempo_entrega, forma_pago, garantia]
+        display: [id, =cotizacion, fecha_cotizacion, tiempo_entrega, forma_pago, garantia]
         title: Catalogo de cotizaciones
         batch_actions: {}
         object_actions:

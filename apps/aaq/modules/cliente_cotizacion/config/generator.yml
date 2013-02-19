@@ -21,10 +21,11 @@ generator:
         telefono:       { label: Teléfono }
         cp:              { label: Codigo Postal  }
       list:
-        display: [nombre_cliente, nombre_empresa, direccion, telefono, ciudad, estado]
+        display: [nombre_cliente, nombre_empresa, direccion, telefono, ciudad, estado, cp]
         title: Catalogo de Clientes a cotizar
         max_per_page: 25
-      filter: ~
+      filter: 
+        display: [nombre_cliente, nombre_empresa, direccion, telefono, ciudad, estado]
       form:    ~
       edit:
         title: Editar cliente  %%nombre_cliente%%

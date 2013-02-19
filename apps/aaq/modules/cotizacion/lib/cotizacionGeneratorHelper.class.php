@@ -10,4 +10,7 @@
  */
 class cotizacionGeneratorHelper extends BaseCotizacionGeneratorHelper
 {
+	public function linkToImprimirCotizacion($object, $params) {
+        return sprintf('<a href="%s">Imprimir Cotizacion</a>', url_for('@cotizacion_imprimir?id=' . $object->getId()));
+    }
 }
