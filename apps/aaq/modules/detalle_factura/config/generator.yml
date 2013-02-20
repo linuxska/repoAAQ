@@ -16,7 +16,7 @@ generator:
       fields:
         descripcion_servicio: { label: Descripción de servicio }
       list:
-        display: [factura, cantidad_servicios,  clave_servicio, ,descripcion_servicio, precio_servicio]
+        display: [=_factura, cantidad_servicios,  clave_servicio, ,descripcion_servicio, precio_servicio]
         title: Descripcion de servicio por factura
         max_per_page: 25
       filter: ~

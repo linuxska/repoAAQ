@@ -23,7 +23,7 @@ class cotizacionActions extends autoCotizacionActions
             $this->redirect('@cotizacion');
         }
         
-        $content = $this->getPartial('cotiz');
+        $content = $this->getPartial('coti');
 
         $lista = new AAQ_04($content);
 

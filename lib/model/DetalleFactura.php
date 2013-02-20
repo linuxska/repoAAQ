@@ -18,4 +18,10 @@
  */
 class DetalleFactura extends BaseDetalleFactura {
 
+	public function  get_Factura(){
+	$factura = FacturaPeer::retrieveByPK($this->getFacturaId());
+        $nombre =  ClienteFacturaPeer::retrieveByPK($factura->getId());
+        $abc = $nombre->getNombreCliente();
+        return sprintf("%s", $abc);
+    }
 } // DetalleFactura
